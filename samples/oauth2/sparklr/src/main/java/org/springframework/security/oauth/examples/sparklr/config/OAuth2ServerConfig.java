@@ -103,7 +103,7 @@ public class OAuth2ServerConfig {
 		@Qualifier("authenticationManagerBean")
 		private AuthenticationManager authenticationManager;
 
-		@Value("${tonr.redirect:http://localhost:8080/tonr2/sparklr/redirect}")
+		@Value("${tonr.redirect:http://localhost:16001/tonr2/sparklr/redirect}")
 		private String tonrRedirectUri;
 
 		@Override
@@ -116,7 +116,7 @@ public class OAuth2ServerConfig {
 			 			.authorities("ROLE_CLIENT")
 			 			.scopes("read", "write")
 			 			.secret("secret")
-						.redirectUris("http://localhost:8080/tonr2/sparklr/photos")
+						.redirectUris("http://localhost:16001/tonr2/sparklr/photos")
 			 		.and()
 			 		.withClient("tonr-with-redirect")
 			 			.resourceIds(SPARKLR_RESOURCE_ID)

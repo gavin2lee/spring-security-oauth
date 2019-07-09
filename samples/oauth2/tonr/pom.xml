@@ -63,6 +63,7 @@
 								<configuration>
 									<path>/tonr2</path>
 									<fork>true</fork>
+                                    <port>16001</port>
 								</configuration>
 							</execution>
 						</executions>
@@ -90,6 +91,8 @@
 					<artifactId>tomcat7-maven-plugin</artifactId>
 					<configuration>
 						<addContextWarDependencies>true</addContextWarDependencies>
+                        <port>16001</port>
+                        <path>/tonr2</path>
 						<webapps>
 							<webapp>
 								<contextPath>/sparklr2</contextPath>
@@ -195,6 +198,19 @@
 			<version>${servlet-api.version}</version>
 			<scope>provided</scope>
 		</dependency>
+        
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.0</version>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.servlet</groupId>
+                    <artifactId>servlet-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 
 		<dependency>
 			<groupId>javax.servlet</groupId>
