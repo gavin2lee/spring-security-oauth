@@ -25,19 +25,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		// @formatter:off
-    	    http.authorizeRequests()
-                .antMatchers("/sparklr/**","/facebook/**").hasRole("USER")
-                .anyRequest().permitAll()
-                .and()
-            .logout()
-                .logoutSuccessUrl("/login.jsp")
-                .permitAll()
-                .and()
-            .formLogin()
-            	.loginProcessingUrl("/login")
-                .loginPage("/login.jsp")
-                .failureUrl("/login.jsp?authentication_error=true")
-                .permitAll();
+    	    http //
+    	        .csrf().disable() //
+    	        .authorizeRequests() //
+                .antMatchers("/sparklr/**","/facebook/**").hasRole("USER") //
+                .anyRequest().permitAll() //
+                .and() //
+            .logout() //
+                .logoutSuccessUrl("/login.jsp") //
+                .permitAll() //
+                .and() //
+            .formLogin() //
+            	.loginProcessingUrl("/login") //
+                .loginPage("/login.jsp") //
+                .failureUrl("/login.jsp?authentication_error=true") //
+                .permitAll(); //
     	// @formatter:on
 	}
 
