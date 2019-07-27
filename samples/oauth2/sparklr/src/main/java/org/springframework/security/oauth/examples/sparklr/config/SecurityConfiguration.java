@@ -31,7 +31,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         web.ignoring() //
                 .antMatchers("/webjars/**", "/images/**", "/oauth/uncache_approvals", "/oauth/cache_approvals",
-                        "/swagger-ui.html", "/swagger-resources/**") //
+                        "/swagger-ui.html","/swagger-ui.html/**", "/swagger-resources/**", "/v2/api-docs") //
                 .and() //
                 .debug(true);
     }

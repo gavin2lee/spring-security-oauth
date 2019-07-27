@@ -93,6 +93,7 @@
 						<addContextWarDependencies>true</addContextWarDependencies>
                         <port>16001</port>
                         <path>/tonr2</path>
+                        <!-- 
 						<webapps>
 							<webapp>
 								<contextPath>/sparklr2</contextPath>
@@ -103,6 +104,7 @@
 								<asWebapp>true</asWebapp>
 							</webapp>
 						</webapps>
+                         -->
 					</configuration>
 				</plugin>
 				<plugin>

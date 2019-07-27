@@ -30,7 +30,7 @@ public class ServletInitializer extends AbstractDispatcherServletInitializer {
 	@Override
 	protected WebApplicationContext createServletApplicationContext() {
 		AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
-		context.register(SecurityConfig.class, WebMvcConfig.class);
+		context.register(SecurityConfig.class, WebMvcConfig.class, Swagger2.class);
 		return context;
 	}
 

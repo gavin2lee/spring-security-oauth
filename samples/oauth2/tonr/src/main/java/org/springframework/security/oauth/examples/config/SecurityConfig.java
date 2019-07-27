@@ -19,14 +19,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/resources/**", "/swagger-ui.html","/swagger-ui.html/**", "/swagger-resources/**");
+        web.ignoring() //
+        .antMatchers("/webjars/**", //
+                "/images/**", //
+                "/oauth/uncache_approvals", //
+                "/oauth/cache_approvals", //
+                "/swagger-ui.html",//
+                "/swagger-ui.html/**", //
+                "/swagger-resources", //
+                "/swagger-resources/**", //
+                "/v2/api-docs") //
+        .and() //
+        .debug(true);
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // @formatter:off
         http //
-             // .csrf().disable() //
+                .csrf() //
+                .disable() //
                 .authorizeRequests() //
                 .antMatchers("/sparklr/**", "/facebook/**").hasRole("USER") //
                 .anyRequest().permitAll() //
